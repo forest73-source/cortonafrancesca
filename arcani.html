@@ -1,217 +1,54 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arcani - Francesca Cortona</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 *{ margin:0; padding:0; box-sizing:border-box; }
 body{ font-family:Georgia, serif; background:#090510; color:#f8e8c0; line-height:1.7; }
 .container{ width:90%; max-width:1200px; margin:auto; }
 
 /* HEADER & NAV */
-header{ 
-  position:sticky; 
-  top:0; 
-  z-index:100; 
-  display:flex; 
-  align-items:center; 
-  justify-content:space-between; 
-  padding:18px 5vw; 
-  background:rgba(9,5,16,.95); 
-  -webkit-backdrop-filter:blur(10px); 
-  backdrop-filter:blur(10px); 
-  border-bottom:1px solid rgba(230,195,106,.25); 
-}
-header .brand{ font-size:1.1rem; letter-spacing:.14em; color:#e6c36a; text-decoration:none; text-transform:uppercase; z-index: 110; }
-
-header nav ul{ list-style:none; display:flex; gap:22px; margin:0; padding:0; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; }
+header{ position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:18px 5vw; background:rgba(9,5,16,.95); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border-bottom:1px solid rgba(230,195,106,.25); }
+header .brand{ font-size:1.1rem; letter-spacing:.14rem; color:#e6c36a; text-decoration:none; text-transform:uppercase; }
+header nav ul{ list-style:none; display:flex; gap:22px; margin:0; padding:0; font-size:.8rem; letter-spacing:.1rem; }
 header nav a{ color:#f8e8c0; text-decoration:none; opacity:.75; transition:.3s; padding-bottom:4px; border-bottom:1px solid transparent; }
 header nav a:hover{ opacity:1; color:#e6c36a; }
 header nav a.active{ opacity:1; color:#e6c36a; border-bottom-color:#e6c36a; }
-
 .header-right{ display:flex; align-items:center; gap:20px; z-index: 110; }
 .lang-toggle{ display:flex; gap:6px; align-items:center; }
-.lang-toggle button{ background:transparent; border:1px solid rgba(230,195,106,.4); color:#f8e8c0; font-family:Georgia,serif; font-size:.72rem; letter-spacing:.1em; padding:5px 10px; border-radius:20px; cursor:pointer; transition:.3s; opacity:.7; }
+.lang-toggle button{ background:transparent; border:1px solid rgba(230,195,106,.4); color:#f8e8c0; font-family:inherit; padding:4px 8px; cursor:pointer; }
 .lang-toggle button.active{ background:#e6c36a; color:#1b0d04; border-color:#e6c36a; opacity:1; font-weight:bold; }
 
-.menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; background: transparent; border: none; cursor: pointer; padding: 0; }
-.menu-toggle span { width: 100%; height: 2px; background-color: #e6c36a; transition: all 0.3s ease; }
+/* NUOVI STILI PER LA VETRINA DEGLI ARCANI */
+.intro-arcani { text-align: center; padding: 60px 20px 20px 20px; }
+.intro-arcani h1 { color: #e6c36a; font-size: 2.8rem; margin-bottom: 20px; }
+.intro-arcani p { max-width: 800px; margin: 0 auto; font-size: 1.2rem; opacity: 0.9; }
 
-/* TITOLO PAGINA */
-.page-title { text-align: center; padding: 60px 20px 20px 20px; }
-.page-title h1 { font-size: 2.5rem; color: #e6c36a; margin-bottom: 10px; }
-.page-title p { font-style: italic; opacity: 0.8; }
-
-/* GRIGLIA DEGLI ARCANI */
+/* Griglia artistica per esporre le carte */
 .arcani-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 30px;
-  padding: 40px 0 80px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 40px 0 80px 0;
 }
 .arcano-card {
-  background: rgba(230, 195, 106, 0.03);
-  border: 1px solid rgba(230, 195, 106, 0.15);
-  border-radius: 12px;
-  padding: 15px;
-  text-align: center;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    background: rgba(230, 195, 106, 0.02);
+    border: 1px solid rgba(230, 195, 106, 0.15);
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .arcano-card:hover {
-  transform: translateY(-5px);
-  border-color: #e6c36a;
-  box-shadow: 0 10px 20px rgba(230, 195, 106, 0.05);
+    transform: translateY(-5px);
+    border-color: #e6c36a;
 }
+
+/* Controllo totale sulle immagini delle carte per non farle diventare giganti */
 .arcano-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  border: 1px solid rgba(230, 195, 106, 0.1);
-  aspect-ratio: 2/3;
-  object-fit: cover;
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
-.arcano-card h3 {
-  color: #e6c36a;
-  font-size: 0.9rem;
-  margin-top: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-/* FOOTER */
-footer{ background:#030106; text-align:center; padding:40px 20px; color:#d5b15c; border-top:1px solid rgba(230,195,106,.2); }
-.social-links { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-.social-link { color: #e6c36a; font-size: 1.8rem; transition: transform 0.3s, color 0.3s; text-decoration: none; }
-.social-link:hover { color: #f8e8c0; transform: translateY(-4px); }
-
-/* RESPONSIVE MOBILE */
-@media (max-width: 768px) {
-  .menu-toggle { display: flex; }
-  .menu-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  .menu-toggle.open span:nth-child(2) { opacity: 0; }
-  .menu-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-  header nav {
-    position: fixed;
-    top: 0;
-    right: -100%; 
-    width: 75%; 
-    max-width: 300px;
-    height: 100vh;
-    background: rgba(9, 5, 16, 0.98);
-    border-left: 1px solid rgba(230,195,106,.2);
-    padding: 100px 30px 40px 30px;
-    transition: right 0.3s ease-in-out;
-  }
-  header nav.open { right: 0; }
-  header nav ul { flex-direction: column; gap: 25px; font-size: 1.1rem; }
-  header nav a { display: block; width: 100%; padding: 8px 0; border-bottom: 1px solid rgba(230,195,106,.05); }
-  header nav a.active { border-bottom-color: #e6c36a; }
-
-  .arcani-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 15px;
-  }
-}
+.arcano-card h3 { color: #e6c36a; font-size: 1.4rem; margin-bottom: 10px; font-weight: normal; }
+.arcano-card p { font-size: 1rem; opacity: 0.8; }
 </style>
-</head>
-<body>
-
-<header>
-  <a class="brand" href="index.html">Francesca Cortona</a>
-  <nav aria-label="Navigazione principale">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a class="active" href="arcani.html">Arcani</a></li>
-      <li><a href="mostre.html">Mostre & Critica</a></li>
-      <li><a href="chakra.html">7 Chakra</a></li>
-      <li><a href="contatti.html">Contatti</a></li>
-    </ul>
-  </nav>
-  <div class="header-right">
-    <div class="lang-toggle">
-      <button type="button" data-lang="it" class="active">IT</button>
-      <button type="button" data-lang="en">EN</button>
-    </div>
-    <button class="menu-toggle" aria-label="Apri menù">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</header>
-
-<div class="page-title">
-  <h1 data-en="The Major Arcana">I 22 Arcani Maggiori</h1>
-  <p data-en="A journey through painted symbols and universal archetypes">Un viaggio attraverso i simboli dipinti e gli archetipi universali</p>
-</div>
-
-<main class="container">
-  <div class="arcani-grid">
-    <!-- I 22 Arcani collegati con i nomi esatti del tuo computer -->
-    <div class="arcano-card"><img src="1.unitas.jpg" alt="1 - Unitas" loading="lazy"><h3>1. Unitas</h3></div>
-    <div class="arcano-card"><img src="2-mater.jpg" alt="2 - Mater" loading="lazy"><h3>2. Mater</h3></div>
-    <div class="arcano-card"><img src="3-creatio.jpg" alt="3 - Creatio" loading="lazy"><h3>3. Creatio</h3></div>
-    <div class="arcano-card"><img src="4-firmas.jpg" alt="4 - Firmas" loading="lazy"><h3>4. Firmas</h3></div>
-    <div class="arcano-card"><img src="5-fides.jpg" alt="5 - Fides" loading="lazy"><h3>5. Fides</h3></div>
-    <!-- Spazio codificato come %20 -->
-    <div class="arcano-card"><img src="6-lux%20et%20umbria.jpg" alt="6 - Lux et Umbria" loading="lazy"><h3>6. Lux et Umbria</h3></div>
-    <div class="arcano-card"><img src="7-universum.jpg" alt="7 - Universum" loading="lazy"><h3>7. Universum</h3></div>
-    <div class="arcano-card"><img src="8-statera%20sublime.jpg" alt="8 - Statera Sublime" loading="lazy"><h3>8. Statera Sublime</h3></div>
-    <div class="arcano-card"><img src="9-sapientia.jpg" alt="9 - Sapientia" loading="lazy"><h3>9. Sapientia</h3></div>
-    <div class="arcano-card"><img src="10-infinitum.jpg" alt="10 - Infinitum" loading="lazy"><h3>10. Infinitum</h3></div>
-    <div class="arcano-card"><img src="11-virtus.jpg" alt="11 - Virtus" loading="lazy"><h3>11. Virtus</h3></div>
-    <div class="arcano-card"><img src="12-lumen.jpg" alt="12 - Lumen" loading="lazy"><h3>12. Lumen</h3></div>
-    <div class="arcano-card"><img src="13-mortem.jpg" alt="13 - Mortem" loading="lazy"><h3>13. Mortem</h3></div>
-    <div class="arcano-card"><img src="14-angelus.jpg" alt="14 - Angelus" loading="lazy"><h3>14. Angelus</h3></div>
-    <div class="arcano-card"><img src="15-materia.jpg" alt="15 - Materia" loading="lazy"><h3>15. Materia</h3></div>
-    <div class="arcano-card"><img src="16-sanctuarium.jpg" alt="16 - Sanctuarium" loading="lazy"><h3>16. Sanctuarium</h3></div>
-    <div class="arcano-card"><img src="17-spes.jpg" alt="17 - Spes" loading="lazy"><h3>17. Spes</h3></div>
-    <div class="arcano-card"><img src="18-mysterium.jpg" alt="18 - Mysterium" loading="lazy"><h3>18. Mysterium</h3></div>
-    <div class="arcano-card"><img src="19-nucleo%20solaris.jpg" alt="19 - Nucleo Solaris" loading="lazy"><h3>19. Nucleo Solaris</h3></div>
-    <div class="arcano-card"><img src="20-resurgere.jpg" alt="20 - Resurgere" loading="lazy"><h3>20. Resurgere</h3></div>
-    <div class="arcano-card"><img src="21-concretio.jpg" alt="21 - Concretio" loading="lazy"><h3>21. Concretio</h3></div>
-    <div class="arcano-card"><img src="22-libertas.jpg" alt="22 - Libertas" loading="lazy"><h3>22. Libertas</h3></div>
-  </div>
-</main>
-
-<footer>
-  <p>Francesca Cortona © 2026 | Art & Spirit</p>
-  <div class="social-links">
-    <a href="https://www.instagram.com/francesca_cortona_art" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/francescacortona" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
-    <a href="mailto:cortonaitalianpainter@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
-  </div>
-</footer>
-
-<script>
-(function(){
-  var els = document.querySelectorAll('[data-en]');
-  els.forEach(function(el){ el.dataset.it = el.innerHTML; });
-  function setLang(lang){
-    els.forEach(function(el){ el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.it; });
-    document.documentElement.lang = lang;
-    document.querySelectorAll('.lang-toggle button').forEach(function(b){ b.classList.toggle('active', b.dataset.lang === lang); });
-    try{ localStorage.setItem('cortona-lang', lang); }catch(e){}
-  }
-  document.querySelectorAll('.lang-toggle button').forEach(function(b){
-    b.addEventListener('click', function(){ setLang(b.dataset.lang); });
-  });
-  var saved;
-  try{ saved = localStorage.getItem('cortona-lang'); }catch(e){}
-  if(saved === 'en'){ setLang('en'); }
-
-  var menuToggle = document.querySelector('.menu-toggle');
-  var nav = document.querySelector('header nav');
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', function() {
-      menuToggle.classList.toggle('open');
-      nav.classList.toggle('open');
-    });
-  }
-})();
-</script>
-</body>
-</html>
