@@ -29,12 +29,6 @@ body{ font-family:Georgia, serif; background:#07030d; color:#f8e8c0; line-height
   100% { transform: translate(80px, 50px) scale(1.15); }
 }
 
-/* CURSORE PERSONALIZZATO (Nascosto di base, attivato via JS solo su desktop) */
-.custom-cursor { width: 8px; height: 8px; background: #e6c36a; border-radius: 50%; position: fixed; transform: translate(-50%, -50%); pointer-events: none; z-index: 9999; opacity: 0; transition: opacity 0.3s, transform 0.1s; }
-.custom-cursor-glow { width: 40px; height: 40px; border: 1px solid rgba(230,195,106,0.4); background: rgba(230,195,106,0.03); border-radius: 50%; position: fixed; transform: translate(-50%, -50%); pointer-events: none; z-index: 9998; opacity: 0; transition: opacity 0.3s, transform 0.2s cubic-bezier(0.1, 0.8, 0.3, 1); box-shadow: 0 0 15px rgba(230,195,106,0.2); }
-.custom-cursor.hover { transform: translate(-50%, -50%) scale(2); background: #fff5dc; }
-.custom-cursor-glow.hover { transform: translate(-50%, -50%) scale(1.6); background: rgba(230,195,106,0.1); border-color: #e6c36a; }
-
 /* HEADER & NAV + BARRA SCROLL PROGRESS */
 header{ position:sticky; top:0; z-index:30; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; padding:18px 5vw; background:rgba(7,3,13,.85); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(230,195,106,.15); }
 header .brand{ font-size:1.1rem; letter-spacing:.14em; color:#e6c36a; text-decoration:none; text-transform:uppercase; }
@@ -95,8 +89,6 @@ footer{ background:#030106; text-align:center; padding:40px 20px; color:#d5b15c;
 .social-links svg { width: 26px; height: 26px; fill: currentColor; vertical-align: middle; }
 
 @media(max-width:768px){ .bio-grid{ grid-template-columns: 1fr; text-align:center; } .hero h1{ font-size:2.5rem; } }
-/* Disattiva cursore custom su dispositivi touch */
-@media (pointer: coarse) { .custom-cursor, .custom-cursor-glow { display: none !important; } }
 </style>
 </head>
 <body>
@@ -106,10 +98,6 @@ footer{ background:#030106; text-align:center; padding:40px 20px; color:#d5b15c;
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
 </div>
-
-<!-- Elementi Cursore Custom -->
-<div id="custom-cursor" class="custom-cursor"></div>
-<div id="custom-cursor-glow" class="custom-cursor-glow"></div>
 
 <header>
 <a class="brand" href="index.html">Francesca Cortona</a>
@@ -144,7 +132,7 @@ footer{ background:#030106; text-align:center; padding:40px 20px; color:#d5b15c;
 <div class="bio-text">
 <h2 class="gradient-text" data-en="Art and its Essence">L'Arte e la sua Essenza</h2>
 <p data-en="Francesca Cortona’s artistic expression is intrinsically spiritual. Guided by holistic and esoteric communication, her paintings serve as a bridge to the deep self, prompting the viewer to look inward. Her research focuses on self-awareness, sensory exploration, and spiritual consciousness, with the profound intent of reconnecting individuals to their original inner Light. For Francesca, art is, above all, a path to healing.">
-L'espressione artistica di Cortona è intrinsecamente di natura Spirituale. Attraverso una comunicazione olistica ed esoterica, si impegna a trasmettere con la pittura un messaggio più profondo, spingendo chi osserva a rivolgere lo sguardo verso il proprio IO interiore. La sua ricerca si concentra sulla Conoscenza e la Consapevolezza del Sé e dei Sensi, con l'intento di riconnettere alla propria Luce interiore, poiché per Cortona l'arte è Guarigione.
+L'espressione artistica di Cortona è intrisecamente di natura Spirituale. Attraverso una comunicazione olistica ed esoterica, si impegna a trasmettere con la pittura un messaggio più profondo, spingendo chi osserva a rivolgere lo sguardo verso il proprio IO interiore. La sua ricerca si concentra sulla Conoscenza e la Consapevolezza del Sé e dei Sensi, con l'intento di riconnettere alla propria Luce interiore, poiché per Cortona l'arte è Guarigione.
 </p>
 
 <blockquote data-en="'Art that does not heal is not art' — Alejandro Jodorowsky. This deeply reflects her artistic philosophy: involving people to make them feel united and precious.">
@@ -154,7 +142,7 @@ L'espressione artistica di Cortona è intrinsecamente di natura Spirituale. Attr
 <p data-en="Born in Rome in 1984 and specialized at Central Saint Martins in London in 2008, Francesca blends oil painting with photoluminescent pigments that glow in the dark, representing the inner beauty that expands. Awarded by Vittorio Sgarbi in 2021, she also launched the '7CHAKRA CONNECTION' NFT project on Ethereum with a humanitarian purpose.">
 Nata a Roma nel 1984 e specializzatasi alla Central Saint Martins di Londra nel 2008, Francesca si distingue nel panorama contemporaneo per l'utilizzo innovativo di pigmenti fotoluminescenti combinati con la pittura a olio classica. Questi materiais generano luce nel buio, diventando metafora della bellezza interiore che si espande. Premiata nel 2021 da Vittorio Sgarbi, ha allargato la sua ricerca alla Crypto Arte lanciando la collezione NFT '7CHAKRA CONNECTION' a scopo umanitario.
 </p>
-<a href="https://opensea.io/collection/cortonaitalianpainter" target="_blank" class="btn-link target-hover" data-en="View NFT Collection on OpenSea">Vedi la Collezione NFT su OpenSea</a>
+<a href="https://opensea.io/collection/cortonaitalianpainter" target="_blank" class="btn-link" data-en="View NFT Collection on OpenSea">Vedi la Collezione NFT su OpenSea</a>
 </div>
 </div>
 </section>
@@ -182,10 +170,10 @@ Nata a Roma nel 1984 e specializzatasi alla Central Saint Martins di Londra nel 
 <footer>
 <p>Francesca Cortona © 2026 | Arte · Simbolismo · Spiritualità</p>
 <div class="social-links">
-<a href="https://www.instagram.com/francescacortona/" target="_blank" aria-label="Instagram" class="target-hover">
+<a href="https://www.instagram.com/francescacortona/" target="_blank" aria-label="Instagram">
 <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
 </a>
-<a href="https://www.facebook.com/CortonaFrancescaArcani" target="_blank" aria-label="Facebook" class="target-hover">
+<a href="https://www.facebook.com/CortonaFrancescaArcani" target="_blank" aria-label="Facebook">
 <svg viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
 </a>
 </div>
@@ -249,27 +237,7 @@ Nata a Roma nel 1984 e specializzatasi alla Central Saint Martins di Londra nel 
   window.addEventListener('scroll', onScroll);
   onScroll();
 
-  // 4. CURSORE CUSTOM CON SCIA
-  var cursor = document.getElementById('custom-cursor');
-  var glow = document.getElementById('custom-cursor-glow');
-  if(matchMedia('(pointer: fine)').matches) {
-    window.addEventListener('mousemove', function(e){
-      cursor.style.opacity = "1";
-      glow.style.opacity = "1";
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-      setTimeout(function(){
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
-      }, 50);
-    });
-    document.querySelectorAll('a, button, header nav a, .art-item img, .target-hover').forEach(function(el){
-      el.addEventListener('mouseenter', function(){ cursor.classList.add('hover'); glow.classList.add('hover'); });
-      el.addEventListener('mouseleave', function(){ cursor.classList.remove('hover'); glow.classList.remove('hover'); });
-    });
-  }
-
-  // 5. INCLINAZIONE 3D (TILT EFFECT)
+  // 4. INCLINAZIONE 3D (TILT EFFECT)
   document.querySelectorAll('.tilt-element').forEach(function(el){
     el.addEventListener('mousemove', function(e){
       var rect = el.getBoundingClientRect();
