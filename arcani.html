@@ -22,7 +22,7 @@ header nav a.active{ opacity:1; color:#e6c36a; border-bottom-color:#e6c36a; }
 .lang-toggle button.active{ background:#e6c36a; color:#1b0d04; border-color:#e6c36a; opacity:1; font-weight:bold; }
 
 /* HERO */
-.hero{ min-height:80vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:60px 20px; background: linear-gradient(rgba(10,5,20,.55), rgba(10,5,20,.85)), url("images/hero-bg.jpg") center/cover no-repeat; }
+.hero{ min-height:80vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:60px 20px; background: linear-gradient(rgba(10,5,20,.55), rgba(10,5,20,.85)), url("hero.jpg") center/cover no-repeat; }
 .hero-content{ max-width:850px; }
 .hero h1{ font-size:3.5rem; color:#e6c36a; letter-spacing:3px; text-shadow: 0 0 20px rgba(230,195,106,.7); margin-bottom:20px; }
 .hero h2{ font-size:1.7rem; font-weight:normal; color:#fff5dc; margin-bottom:30px; }
@@ -46,7 +46,7 @@ section{ padding:90px 0; }
 .arcano{ text-align:center; }
 .arcano img{ width:100%; border-radius:22px; border:1px solid rgba(230,195,106,.5); transition:.5s; box-shadow: 0 0 0 rgba(230,195,106,0); }
 .arcano img:hover{ transform: translateY(-12px) scale(1.03); box-shadow: 0 0 35px rgba(230,195,106,.9); }
-.arcano h4{ margin-top:15px; color:#e6c36a; font-size:1.2rem; }
+.arcano h4{ margin-top:15px; color:#e6c36a; font-size:1.2rem; text-transform:uppercase; }
 
 /* PREZZI */
 .price-area{ display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:40px; margin-top:40px; }
@@ -56,7 +56,13 @@ section{ padding:90px 0; }
 .price-box ul{ list-style:none; margin-bottom:30px; }
 .price-box li{ margin:12px; }
 
-footer{ background:#030106; text-align:center; padding:30px; color:#d5b15c; }
+/* FOOTER & SOCIALS */
+footer{ background:#030106; text-align:center; padding:40px 20px; color:#d5b15c; border-top:1px solid rgba(230,195,106,.1); }
+.social-links { display: flex; justify-content: center; gap: 25px; margin-top: 20px; }
+.social-links a { color: #e6c36a; transition: 0.3s; display: inline-block; }
+.social-links a:hover { transform: scale(1.15); color: #fff5dc; }
+.social-links svg { width: 26px; height: 26px; fill: currentColor; vertical-align: middle; }
+
 @media(max-width:700px){ .hero h1{ font-size:2.5rem; } header nav ul{ gap:14px; font-size:.72rem; } }
 </style>
 </head>
@@ -161,34 +167,42 @@ Gli Arcani di Cortona Francesca sono un'opera d'autore: 22 dipinti realizzati a 
 <div class="container">
 <h2 class="title" data-en="The 22 Archetypes of the Soul">I 22 Archetipi dell'Anima</h2>
 <div class="gallery">
-<div class="arcano"><img src="arcano1.jpg" alt="UNITAS" loading="lazy"><h4>UNITAS</h4></div>
-<div class="arcano"><img src="arcano2.jpg" alt="MATER" loading="lazy"><h4>MATER</h4></div>
-<div class="arcano"><img src="arcano3.jpg" alt="CREATIO" loading="lazy"><h4>CREATIO</h4></div>
-<div class="arcano"><img src="arcano4.jpg" alt="LIBERTAS" loading="lazy"><h4>LIBERTAS</h4></div>
-<div class="arcano"><img src="arcano5.jpg" alt="SAPIENTIA" loading="lazy"><h4>SAPIENTIA</h4></div>
-<div class="arcano"><img src="arcano6.jpg" alt="VIRTUS" loading="lazy"><h4>VIRTUS</h4></div>
-<div class="arcano"><img src="arcano7.jpg" alt="UNIVERSUM" loading="lazy"><h4>UNIVERSUM</h4></div>
-<div class="arcano"><img src="arcano8.jpg" alt="ANGELUS" loading="lazy"><h4>ANGELUS</h4></div>
-<div class="arcano"><img src="arcano9.jpg" alt="NUCLEUS SOLARIS" loading="lazy"><h4>NUCLEUS SOLARIS</h4></div>
-<div class="arcano"><img src="arcano10.jpg" alt="SANCTUARIUM" loading="lazy"><h4>SANCTUARIUM</h4></div>
-<div class="arcano"><img src="arcano11.jpg" alt="RESURGERE" loading="lazy"><h4>RESURGERE</h4></div>
-<div class="arcano"><img src="arcano12.jpg" alt="ARCANO XII" loading="lazy"><h4>ARCANO XII</h4></div>
-<div class="arcano"><img src="arcano13.jpg" alt="ARCANO XIII" loading="lazy"><h4>ARCANO XIII</h4></div>
-<div class="arcano"><img src="arcano14.jpg" alt="ARCANO XIV" loading="lazy"><h4>ARCANO XIV</h4></div>
-<div class="arcano"><img src="arcano15.jpg" alt="ARCANO XV" loading="lazy"><h4>ARCANO XV</h4></div>
-<div class="arcano"><img src="arcano16.jpg" alt="ARCANO XVI" loading="lazy"><h4>ARCANO XVI</h4></div>
-<div class="arcano"><img src="arcano17.jpg" alt="ARCANO XVII" loading="lazy"><h4>ARCANO XVII</h4></div>
-<div class="arcano"><img src="arcano18.jpg" alt="ARCANO XVIII" loading="lazy"><h4>ARCANO XVIII</h4></div>
-<div class="arcano"><img src="arcano19.jpg" alt="ARCANO XIX" loading="lazy"><h4>ARCANO XIX</h4></div>
-<div class="arcano"><img src="arcano20.jpg" alt="ARCANO XX" loading="lazy"><h4>ARCANO XX</h4></div>
-<div class="arcano"><img src="arcano21.jpg" alt="CONCRETIO" loading="lazy"><h4>CONCRETIO</h4></div>
-<div class="arcano"><img src="arcano22.jpg" alt="ARCANO XXII" loading="lazy"><h4>ARCANO XXII</h4></div>
+<div class="arcano"><img src="1.unitas.jpg" alt="Unitas" loading="lazy"><h4>Unitas</h4></div>
+<div class="arcano"><img src="2-mater.jpg" alt="Mater" loading="lazy"><h4>Mater</h4></div>
+<div class="arcano"><img src="3-creatio.jpg" alt="Creatio" loading="lazy"><h4>Creatio</h4></div>
+<div class="arcano"><img src="4-firmas.jpg" alt="Firmas" loading="lazy"><h4>Firmas</h4></div>
+<div class="arcano"><img src="5-fides.jpg" alt="Fides" loading="lazy"><h4>Fides</h4></div>
+<div class="arcano"><img src="6-lux%20et%20umbria.jpg" alt="Lux et Umbria" loading="lazy"><h4>Lux et Umbria</h4></div>
+<div class="arcano"><img src="7-universum.jpg" alt="Universum" loading="lazy"><h4>Universum</h4></div>
+<div class="arcano"><img src="8-statera%20sublime.jpg" alt="Statera Sublime" loading="lazy"><h4>Statera Sublime</h4></div>
+<div class="arcano"><img src="9-sapientia.jpg" alt="Sapientia" loading="lazy"><h4>Sapientia</h4></div>
+<div class="arcano"><img src="10-infinitum.jpg" alt="Infinitum" loading="lazy"><h4>Infinitum</h4></div>
+<div class="arcano"><img src="11-virtus.jpg" alt="Virtus" loading="lazy"><h4>Virtus</h4></div>
+<div class="arcano"><img src="12-lumen.jpg" alt="Lumen" loading="lazy"><h4>Lumen</h4></div>
+<div class="arcano"><img src="13-mortem.jpg" alt="Mortem" loading="lazy"><h4>Mortem</h4></div>
+<div class="arcano"><img src="14-angelus.jpg" alt="Angelus" loading="lazy"><h4>Angelus</h4></div>
+<div class="arcano"><img src="15-materia.jpg" alt="Materia" loading="lazy"><h4>Materia</h4></div>
+<div class="arcano"><img src="16-sanctuarium.jpg" alt="Sanctuarium" loading="lazy"><h4>Sanctuarium</h4></div>
+<div class="arcano"><img src="17-spes.jpg" alt="Spes" loading="lazy"><h4>Spes</h4></div>
+<div class="arcano"><img src="18-mysterium.jpg" alt="Mysterium" loading="lazy"><h4>Mysterium</h4></div>
+<div class="arcano"><img src="19-nucleo%20solaris.jpg" alt="Nucleo Solaris" loading="lazy"><h4>Nucleo Solaris</h4></div>
+<div class="arcano"><img src="20-resurgere.jpg" alt="Resurgere" loading="lazy"><h4>Resurgere</h4></div>
+<div class="arcano"><img src="21-concretio.jpg" alt="Concretio" loading="lazy"><h4>Concretio</h4></div>
+<div class="arcano"><img src="22-libertas.jpg" alt="Libertas" loading="lazy"><h4>Libertas</h4></div>
 </div>
 </div>
 </section>
 
 <footer>
 <p>Arcani di Cortona Francesca | Spedizione Internazionale Gratuita</p>
+<div class="social-links">
+<a href="https://www.instagram.com/francescacortona/" target="_blank" aria-label="Instagram">
+<svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+</a>
+<a href="https://www.facebook.com/CortonaFrancescaArcani" target="_blank" aria-label="Facebook">
+<svg viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+</a>
+</div>
 </footer>
 
 <script>
