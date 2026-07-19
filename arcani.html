@@ -3,409 +3,234 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Arcani di Cortona Francesca</title>
-
+<title>Francesca Cortona - Il Cofanetto degli Arcani</title>
 <style>
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{ font-family:Georgia, serif; background:#090510; color:#f8e8c0; line-height:1.7; }
+.container{ width:90%; max-width:1200px; margin:auto; }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* HEADER & NAV (Identico a index.html) */
+header{ position:sticky; top:0; z-index:30; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; padding:18px 5vw; background:rgba(9,5,16,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(230,195,106,.25); }
+header .brand{ font-size:1.1rem; letter-spacing:.14em; color:#e6c36a; text-decoration:none; text-transform:uppercase; }
+header nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:22px; margin:0; padding:0; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; }
+header nav a{ color:#f8e8c0; text-decoration:none; opacity:.75; transition:.3s; padding-bottom:4px; border-bottom:1px solid transparent; }
+header nav a:hover{ opacity:1; color:#e6c36a; }
+header nav a.active{ opacity:1; color:#e6c36a; border-bottom-color:#e6c36a; }
 
-body{
-font-family:Georgia,serif;
-background:#090510;
-color:#f8e8c0;
-line-height:1.7;
-}
+.lang-toggle{ display:flex; gap:6px; align-items:center; }
+.lang-toggle button{ background:transparent; border:1px solid rgba(230,195,106,.4); color:#f8e8c0; font-family:Georgia,serif; font-size:.72rem; letter-spacing:.1em; padding:5px 10px; border-radius:20px; cursor:pointer; transition:.3s; opacity:.7; }
+.lang-toggle button.active{ background:#e6c36a; color:#1b0d04; border-color:#e6c36a; opacity:1; font-weight:bold; }
 
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-}
+/* HERO ARCANI */
+.hero{ min-height:50vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:60px 20px; background: linear-gradient(rgba(10,5,20,.65), rgba(10,5,20,.95)), url("images/hero-bg.jpg") center/cover no-repeat; }
+.hero h1{ font-size:3.5rem; color:#e6c36a; letter-spacing:3px; text-shadow: 0 0 20px rgba(230,195,106,.5); margin-bottom:15px; }
+.hero h2{ font-size:1.6rem; font-weight:normal; color:#fff5dc; margin-bottom:30px; }
 
-/* NAVIGAZIONE DI RITORNO ALLA BIOGRAFIA */
-.nav-ritorno {
-padding: 20px 0;
-display: flex;
-justify-content: flex-start;
-}
+/* BOTTONI CORRETTI (WhatsApp apre in una nuova scheda) */
+.btn{ display:inline-block; padding:15px 40px; border-radius:40px; background:linear-gradient(45deg, #b88632, #f5db8a); color:#1b0d04; font-weight:bold; text-decoration:none; transition:.4s; }
+.btn:hover{ transform:scale(1.08); box-shadow: 0 0 30px #d9b45a; }
 
-.link-home {
-color: #e6c36a;
-text-decoration: none;
-font-size: 1.1rem;
-transition: .3s;
-}
+/* SEZIONI SPECIFICHE PRODOTTO */
+section{ padding:90px 0; }
+.title{ text-align:center; font-size:2.5rem; color:#e6c36a; margin-bottom:35px; text-shadow: 0 0 15px rgba(230,195,106,.4); }
+.text-center{ max-width:900px; margin:auto; text-align:center; font-size:1.15rem; }
 
-.link-home:hover {
-text-shadow: 0 0 10px rgba(230,195,106,.7);
-}
+/* SEZIONE COFANETTO & CARDS */
+.cofanetto{ background:#10081a; }
+.cards{ display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:30px; margin-top:50px; }
+.card{ background:linear-gradient(145deg, #21132d, #100817); border:1px solid rgba(230,195,106,.35); border-radius:25px; padding:35px; text-align:center; box-shadow: 0 10px 35px rgba(0,0,0,.5); }
+.card h3{ color:#e6c36a; margin-bottom:15px; font-size:1.5rem; }
 
-/* HERO */
-.hero{
-min-height:60vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:60px 20px;
-background:
-linear-gradient(
-rgba(10,5,20,.55),
-rgba(10,5,20,.85)
-),
-url("hero.jpg") center/cover no-repeat;
-}
+/* PREZZI ed EDIZIONI */
+.price-section { background:#090510; }
+.price-area{ display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:40px; margin-top:50px; }
+.price-box{ background:#160b22; border:2px solid #b88632; border-radius:30px; padding:40px; text-align:center; }
+.price-box h3{ color:#e6c36a; font-size:1.7rem; }
+.price{ font-size:3rem; color:#fff1bd; margin:20px; }
+.price-box ul{ list-style:none; margin-bottom:30px; }
+.price-box li{ margin:12px; }
 
-.hero-content{
-max-width:850px;
-}
+/* GALLERIA DEI 22 ARCHE TIPI */
+.gallery-section{ background:#050208; }
+.gallery{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:30px; margin-top:50px; }
+.arcano{ text-align:center; }
+.arcano img{ width:100%; border-radius:22px; border:1px solid rgba(230,195,106,.5); transition:.5s; box-shadow: 0 0 0 rgba(230,195,106,0); }
+.arcano img:hover{ transform: translateY(-12px) scale(1.03); box-shadow: 0 0 35px rgba(230,195,106,.9); }
+.arcano h4{ margin-top:15px; color:#e6c36a; font-size:1.2rem; }
 
-.hero h1{
-font-size:4rem;
-color:#e6c36a;
-letter-spacing:3px;
-text-shadow:
-0 0 20px rgba(230,195,106,.7);
-margin-bottom:20px;
-}
+/* SEZIONE CONTATTI */
+.contact{ background:#160b22; text-align:center; }
+.contact p{ margin-bottom: 8px; }
+.contact a{ color:#e6c36a; text-decoration:none; font-weight: bold; }
 
-.hero h2{
-font-size:1.7rem;
-font-weight:normal;
-color:#fff5dc;
-margin-bottom:30px;
-}
+footer{ background:#030106; text-align:center; padding:35px; color:#d5b15c; border-top:1px solid rgba(230,195,106,.1); font-size:0.9rem; }
 
-.btn{
-display:inline-block;
-padding:15px 40px;
-border-radius:40px;
-background:
-linear-gradient(
-45deg,
-#b88632,
-#f5db8a
-);
-color:#1b0d04;
-font-weight:bold;
-text-decoration:none;
-transition:.4s;
-}
-
-.btn:hover{
-transform:scale(1.08);
-box-shadow:
-0 0 30px #d9b45a;
-}
-
-/* SEZIONI */
-section{
-padding:90px 0;
-}
-
-.title{
-text-align:center;
-font-size:2.5rem;
-color:#e6c36a;
-margin-bottom:35px;
-text-shadow:
-0 0 15px rgba(230,195,106,.4);
-}
-
-.text-center{
-max-width:900px;
-margin:auto;
-text-align:center;
-font-size:1.15rem;
-}
-
-/* CARDS */
-.cards{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-margin-top:50px;
-}
-
-.card{
-background:
-linear-gradient(
-145deg,
-#21132d,
-#100817
-);
-border:1px solid rgba(230,195,106,.35);
-border-radius:25px;
-padding:35px;
-text-align:center;
-box-shadow:
-0 10px 35px rgba(0,0,0,.5);
-}
-
-.card h3{
-color:#e6c36a;
-margin-bottom:15px;
-font-size:1.5rem;
-}
-
-/* COFANETTO */
-.cofanetto{
-background:
-linear-gradient(
-135deg,
-#160b22,
-#08030c
-);
-}
-
-/* GALLERIA */
-.gallery-section{
-background:#050208;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-margin-top:50px;
-}
-
-.arcano{
-text-align:center;
-}
-
-.arcano img{
-width:100%;
-border-radius:22px;
-border:1px solid rgba(230,195,106,.5);
-transition:.5s;
-box-shadow:
-0 0 0 rgba(230,195,106,0);
-}
-
-.arcano img:hover{
-transform:
-translateY(-12px)
-scale(1.03);
-box-shadow:
-0 0 35px rgba(230,195,106,.9);
-}
-
-.arcano h4{
-margin-top:15px;
-color:#e6c36a;
-font-size:1.2rem;
-}
-
-/* PREZZI */
-.price-area{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-gap:40px;
-}
-
-.price-box{
-background:#160b22;
-border:2px solid #b88632;
-border-radius:30px;
-padding:40px;
-text-align:center;
-}
-
-.price-box h3{
-color:#e6c36a;
-font-size:1.7rem;
-}
-
-.price{
-font-size:3rem;
-color:#fff1bd;
-margin:20px;
-}
-
-.price-box ul{
-list-style:none;
-margin-bottom:30px;
-}
-
-.price-box li{
-margin:12px;
-}
-
-/* CONTATTI */
-.contact{
-background:#160b22;
-text-align:center;
-}
-
-.contact a{
-color:#e6c36a;
-text-decoration:none;
-}
-
-footer{
-background:#030106;
-text-align:center;
-padding:30px;
-color:#d5b15c;
-}
-
-@media(max-width:700px){
-.hero h1{
-font-size:2.5rem;
-}
-}
-
+@media(max-width:768px){ .hero h1{ font-size:2.5rem; } .price-area { grid-template-columns: 1fr; } }
 </style>
 </head>
-
 <body>
 
-<div class="container">
-    <!-- Barra superiore con il link che riporta alla biografia senza uscire dal sito -->
-    <div class="nav-ritorno">
-        <a href="index.html" class="link-home">&larr; Torna alla Home / Biografia</a>
-    </div>
+<!-- MENU DI NAVIGAZIONE COMPLETO (Spostata classe active su Arcani) -->
+<header>
+<a class="brand" href="index.html">Francesca Cortona</a>
+<nav aria-label="Navigazione principale">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a class="active" href="arcani.html">Arcani</a></li>
+<li><a href="mostre.html">Mostre & Critica</a></li>
+<li><a href="chakra.html">7 Chakra</a></li>
+<li><a href="contatti.html">Contatti</a></li>
+</ul>
+</nav>
+<div class="lang-toggle">
+<button type="button" data-lang="it" class="active">IT</button>
+<button type="button" data-lang="en">EN</button>
 </div>
+</header>
 
 <section class="hero">
 <div class="hero-content">
-<h1>Arcani di Cortona Francesca</h1>
-<h2>22 Arcani Maggiori dipinti a mano</h2>
-<a class="btn" href="https://wa.me/393922731473" target="_blank" rel="noopener noreferrer">Ordina su WhatsApp</a>
+<h1 data-en="The Arcana Box Set">Il Cofanetto degli Arcani</h1>
+<h2 data-en="22 Hand-painted Major Arcana">22 Arcani Maggiori dipinti a mano</h2>
+<a class="btn" href="https://wa.me/393922731473" target="_blank" rel="noopener noreferrer" data-en="Order on WhatsApp">Ordina su WhatsApp</a>
 </div>
 </section>
 
-<!-- SEZIONE COFANETTO CON I TUOI TESTI NUOVI -->
+<!-- SEZIONE COFANETTO CON TESTI IN DOPPIA LINGUA -->
 <section class="cofanetto">
 <div class="container">
-<h2 class="title">Il Cofanetto degli Arcani</h2>
-<p class="text-center">
-EDIZIONE LIMITATA — Solo 33 cofanetti numerati[cite: 3]. Ogni esemplare è preparato, numerato e firmato personalmente da Francesca Cortona, rendendo ogni cofanetto un'opera unica da collezione, pensata per accompagnare il tuo corso attraverso i 22 arcani[cite: 3].
+<h2 class="title" data-en="The Arcana Box Set Project">Il Cofanetto d'Autore</h2>
+<p class="text-center" data-en="LIMITED EDITION — Only 33 numbered box sets. Each piece is prepared, numbered, and personally signed by Francesca Cortona, making every box set a unique collector's artwork. Designed to accompany your journey through the 22 arcana.">
+EDIZIONE LIMITATA — Solo 33 cofanetti numerati[cite: 3]. Ogni esemplare è preparato, numerato e firmato personalmente da Francesca Cortona, rendendo ogni cofanetto un'opera unica da collezione[cite: 3]. Edizione pensata per accompagnare il tuo corso attraverso i 22 arcani[cite: 3].
 </p>
 
 <div class="cards">
 <div class="card">
-<h3>Il Mazzo d'Arte</h3>
-<p>Cofanetto speciale da collezione contenente il mazzo completo con 22 Arcani illustrati e firmati con la sigla FC[cite: 3].</p>
+<h3 data-en="The Art Deck">Il Mazzo d'Arte</h3>
+<p data-en="Special collector's box set containing the complete deck of 22 illustrated Arcana, signed with the FC initials.">Cofanetto speciale da collezione contenente il mazzo completo con 22 Arcani illustrati e firmati con la sigla FC[cite: 3].</p>
 </div>
 
 <div class="card">
-<h3>Contenuti Editoriali</h3>
-<p>Volume illustrato ARCANI e accesso esclusivo alle composizioni sonore originali dell'opera[cite: 3].</p>
+<h3 data-en="Editorial Content">Contenuti Editoriali</h3>
+<p data-en="Illustrated ARCANI book and exclusive access to the original sound compositions of the work.">Volume illustrato ARCANI e accesso esclusivo alle composizioni sonore originali dell'opera[cite: 3].</p>
 </div>
 
 <div class="card">
-<h3>Autenticità & Stampe</h3>
-<p>Certificato di Autenticità compilato a mano e una stampa Fine Art di un Arcano a scelta, firmata e datata dall'artista[cite: 3].</p>
+<h3 data-en="Authenticity & Prints">Autenticità & Stampe</h3>
+<p data-en="Hand-filled Certificate of Authenticity and a Fine Art print of an Arcana of your choice, signed and dated by the artist.">Certificato di Autenticità compilato a mano e una stampa Fine Art di un Arcano a scelta, firmata e datata dall'artista[cite: 3].</p>
 </div>
 
 <div class="card">
-<h3>Esclusività & Invio</h3>
-<p>Edizione d'arte limitata a soli 33 esemplari numerati con spedizione gratuita inclusa per ogni ordine[cite: 3].</p>
+<h3 data-en="Exclusivity & Shipping">Esclusività & Invio</h3>
+<p data-en="Art edition limited to just 33 numbered copies with free shipping included for every order.">Edizione d'arte limitata a soli 33 esemplari numerati con spedizione gratuita inclusa per ogni ordine[cite: 3].</p>
 </div>
 </div>
 </div>
 </section>
 
-<section>
+<!-- SEZIONE PREZZI ed EDIZIONI -->
+<section class="price-section">
 <div class="container">
-<h2 class="title">Le Edizioni Disponibili</h2>
+<h2 class="title" data-en="Available Editions">Le Edizioni Disponibili</h2>
 <div class="price-area">
 <div class="price-box">
-<h3>Edizione Classica</h3>
+<h3 data-en="Classic Edition">Edizione Classica</h3>
 <div class="price">57 €</div>
 <ul>
-<li>✔ Mazzo completo 22 Arcani</li>
-<li>✔ Libro "Arcani" incluso</li>
-<li>✔ Spedizione gratuita</li>
-<li>✔ Opera artistica da collezione</li>
+<li data-en="✔ Complete 22 Arcani deck">✔ Mazzo completo 22 Arcani</li>
+<li data-en="✔ 'Arcani' book included">✔ Libro "Arcani" incluso</li>
+<li data-en="✔ Free shipping">✔ Spedizione gratuita</li>
+<li data-en="✔ Collector's art piece">✔ Opera artistica da collezione</li>
 </ul>
-<a class="btn" href="https://wa.me/393922731473" target="_blank" rel="noopener noreferrer">Acquista via WhatsApp</a>
+<a class="btn" href="https://wa.me/393922731473" target="_blank" rel="noopener noreferrer" data-en="Buy via WhatsApp">Acquista via WhatsApp</a>
 </div>
 
 <div class="price-box">
-<h3>Edizione Limitata</h3>
+<h3 data-en="Limited Edition">Edizione Limitata</h3>
 <div class="price">220 €</div>
-<p style="color:#e6c36a;font-size:1.2rem;">Solo 33 cofanetti disponibili[cite: 3]</p>
+<p style="color:#e6c36a;font-size:1.2rem;" data-en="Only 33 box sets available">Solo 33 cofanetti disponibili[cite: 3]</p>
 <br>
 <ul>
-<li>✔ Edizione numerata[cite: 3]</li>
-<li>✔ Mazzo completo dei 22 Arcani[cite: 3]</li>
-<li>✔ Libro "Arcani"[cite: 3]</li>
-<li>✔ Musica dedicata all'opera[cite: 3]</li>
-<li>✔ Spedizione gratuita[cite: 3]</li>
+<li data-en="✔ Numbered edition">✔ Edizione numerata[cite: 3]</li>
+<li data-en="✔ Complete 22 Arcani deck">✔ Mazzo completo dei 22 Arcani[cite: 3]</li>
+<li data-en="✔ 'Arcani' book">✔ Libro "Arcani"[cite: 3]</li>
+<li data-en="✔ Dedicated music soundtrack">✔ Musica dedicata all'opera[cite: 3]</li>
+<li data-en="✔ Free shipping">✔ Spedizione gratuita[cite: 3]</li>
 </ul>
-<a class="btn" href="https://wa.me/393922731473" target="_blank" rel="noopener noreferrer">Prenota Edizione Limitata</a>
+<a class="btn" href="https://wa.me/393922731473" target="_blank" rel="noopener noreferrer" data-en="Reserve Limited Edition">Prenota Edizione Limitata</a>
 </div>
 </div>
 </div>
 </section>
 
+<!-- GALLERIA DEI 22 ARCHE TIPI -->
 <section class="gallery-section">
 <div class="container">
-<h2 class="title">I 22 Archetipi dell'Anima</h2>
-<p class="text-center">Ogni Arcano custodisce un nome, un simbolo e un messaggio nel viaggio della coscienza.</p>
+<h2 class="title" data-en="The 22 Soul Archetypes">I 22 Archetipi dell'Anima</h2>
+<p class="text-center" data-en="Each Arcana holds a name, a symbol, and a message in the journey of consciousness.">Ogni Arcano custodisce un nome, un simbolo e un messaggio nel viaggio della coscienza.</p>
 <div class="gallery">
-<div class="arcano"><img src="arcano1.jpg" alt="UNITAS"><h4>UNITAS</h4></div>
-<div class="arcano"><img src="arcano2.jpg" alt="MATER"><h4>MATER</h4></div>
-<div class="arcano"><img src="arcano3.jpg" alt="CREATIO"><h4>CREATIO</h4></div>
-<div class="arcano"><img src="arcano4.jpg" alt="LIBERTAS"><h4>LIBERTAS</h4></div>
-<div class="arcano"><img src="arcano5.jpg" alt="SAPIENTIA"><h4>SAPIENTIA</h4></div>
-<div class="arcano"><img src="arcano6.jpg" alt="VIRTUS"><h4>VIRTUS</h4></div>
-<div class="arcano"><img src="arcano7.jpg" alt="UNIVERSUM"><h4>UNIVERSUM</h4></div>
-<div class="arcano"><img src="arcano8.jpg" alt="ANGELUS"><h4>ANGELUS</h4></div>
-<div class="arcano"><img src="arcano9.jpg" alt="NUCLEUS SOLARIS"><h4>NUCLEUS SOLARIS</h4></div>
-<div class="arcano"><img src="arcano10.jpg" alt="SANCTUARIUM"><h4>SANCTUARIUM</h4></div>
-<div class="arcano"><img src="arcano11.jpg" alt="RESURGERE"><h4>RESURGERE</h4></div>
-<div class="arcano"><img src="arcano12.jpg" alt="ARCANO XII"><h4>ARCANO XII</h4></div>
-<div class="arcano"><img src="arcano13.jpg" alt="ARCANO XIII"><h4>ARCANO XIII</h4></div>
-<div class="arcano"><img src="arcano14.jpg" alt="ARCANO XIV"><h4>ARCANO XIV</h4></div>
-<div class="arcano"><img src="arcano15.jpg" alt="ARCANO XV"><h4>ARCANO XV</h4></div>
-<div class="arcano"><img src="arcano16.jpg" alt="ARCANO XVI"><h4>ARCANO XVI</h4></div>
-<div class="arcano"><img src="arcano17.jpg" alt="ARCANO XVII"><h4>ARCANO XVII</h4></div>
-<div class="arcano"><img src="arcano18.jpg" alt="ARCANO XVIII"><h4>ARCANO XVIII</h4></div>
-<div class="arcano"><img src="arcano19.jpg" alt="ARCANO XIX"><h4>ARCANO XIX</h4></div>
-<div class="arcano"><img src="arcano20.jpg" alt="ARCANO XX"><h4>ARCANO XX</h4></div>
-<div class="arcano"><img src="arcano21.jpg" alt="ARCANO XXI"><h4>ARCANO XXI</h4></div>
-<div class="arcano"><img src="arcano22.jpg" alt="ARCANO XXII"><h4>ARCANO XXII</h4></div>
+<div class="arcano"><img src="images/arcano1.jpg" alt="UNITAS"><h4>UNITAS</h4></div>
+<div class="arcano"><img src="images/arcano2.jpg" alt="MATER"><h4>MATER</h4></div>
+<div class="arcano"><img src="images/arcano3.jpg" alt="CREATIO"><h4>CREATIO</h4></div>
+<div class="arcano"><img src="images/arcano4.jpg" alt="LIBERTAS"><h4>LIBERTAS</h4></div>
+<div class="arcano"><img src="images/arcano5.jpg" alt="SAPIENTIA"><h4>SAPIENTIA</h4></div>
+<div class="arcano"><img src="images/arcano6.jpg" alt="VIRTUS"><h4>VIRTUS</h4></div>
+<div class="arcano"><img src="images/arcano7.jpg" alt="UNIVERSUM"><h4>UNIVERSUM</h4></div>
+<div class="arcano"><img src="images/arcano8.jpg" alt="ANGELUS"><h4>ANGELUS</h4></div>
+<div class="arcano"><img src="images/arcano9.jpg" alt="NUCLEUS SOLARIS"><h4>NUCLEUS SOLARIS</h4></div>
+<div class="arcano"><img src="images/arcano10.jpg" alt="SANCTUARIUM"><h4>SANCTUARIUM</h4></div>
+<div class="arcano"><img src="images/arcano11.jpg" alt="RESURGERE"><h4>RESURGERE</h4></div>
+<div class="arcano"><img src="images/arcano12.jpg" alt="ARCANO XII"><h4>ARCANO XII</h4></div>
+<div class="arcano"><img src="images/arcano13.jpg" alt="ARCANO XIII"><h4>ARCANO XIII</h4></div>
+<div class="arcano"><img src="images/arcano14.jpg" alt="ARCANO XIV"><h4>ARCANO XIV</h4></div>
+<div class="arcano"><img src="images/arcano15.jpg" alt="ARCANO XV"><h4>ARCANO XV</h4></div>
+<div class="arcano"><img src="images/arcano16.jpg" alt="ARCANO XVI"><h4>ARCANO XVI</h4></div>
+<div class="arcano"><img src="images/arcano17.jpg" alt="ARCANO XVII"><h4>ARCANO XVII</h4></div>
+<div class="arcano"><img src="images/arcano18.jpg" alt="ARCANO XVIII"><h4>ARCANO XVIII</h4></div>
+<div class="arcano"><img src="images/arcano19.jpg" alt="ARCANO XIX"><h4>ARCANO XIX</h4></div>
+<div class="arcano"><img src="images/arcano20.jpg" alt="ARCANO XX"><h4>ARCANO XX</h4></div>
+<div class="arcano"><img src="images/arcano21.jpg" alt="ARCANO XXI"><h4>ARCANO XXI</h4></div>
+<div class="arcano"><img src="images/arcano22.jpg" alt="ARCANO XXII"><h4>ARCANO XXII</h4></div>
 </div>
 </div>
 </section>
 
+<!-- CONTATTI -->
 <section class="contact">
 <div class="container">
-<h2 class="title">Contatti e Ordini</h2>
-<p>Per informazioni, prenotazioni e acquisti:</p>
+<h2 class="title" data-en="Contacts & Orders">Contatti e Ordini</h2>
+<p data-en="For information, reservations and purchases:">Per informazioni, prenotazioni e acquisti:</p>
 <br>
-<p>📧 Email:</p>
-<p><a href="mailto:cortonaitalianpainter@gmail.com">cortonaitalianpainter@gmail.com</a></p>
-<br>
-<p>📱 WhatsApp:</p>
-<p><a href="https://wa.me/393922731473" target="_blank" rel="noopener noreferrer">392 273 1473</a></p>
-<br>
-<p>📘 Facebook:</p>
-<p><a href="https://www.facebook.com/CortonaFrancescaArcani/" target="_blank">Arte e Spiritualità Connesse</a></p>
-<br>
-<p>📷 Instagram:</p>
-<p><a href="https://www.instagram.com/francescacortona/" target="_blank">@francescacortona</a></p>
-<br>
-<p>🎵 TikTok:</p>
-<p>Prossimamente</p>
+<p>📧 Email: <a href="mailto:cortonaitalianpainter@gmail.com">cortonaitalianpainter@gmail.com</a></p>
+<p>📱 WhatsApp: <a href="https://wa.me/393922731473" target="_blank" rel="noopener noreferrer">392 273 1473</a></p>
+<p>📘 Facebook: <a href="https://www.facebook.com/CortonaFrancescaArcani/" target="_blank">Arte e Spiritualità Connesse</a></p>
+<p>📷 Instagram: <a href="https://www.instagram.com/francescacortona/" target="_blank">@francescacortona</a></p>
 </div>
 </section>
 
+<!-- FOOTER IDENTICO -->
 <footer>
-<p>Arcani di Cortona Francesca<br>22 Arcani Maggiori dipinti a mano<br>Arte · Simbolismo · Spiritualità</p>
+<p>Francesca Cortona © 2026 | Arte · Simbolismo · Spiritualità</p>
 </footer>
 
+<!-- SCRIPT DI TRADUZIONE IDENTICO A INDEX.HTML -->
+<script>
+(function(){
+  var els = document.querySelectorAll('[data-en]');
+  els.forEach(function(el){ el.dataset.it = el.innerHTML; });
+  function setLang(lang){
+    els.forEach(function(el){ el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.it; });
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-toggle button').forEach(function(b){ b.classList.toggle('active', b.dataset.lang === lang); });
+    try{ localStorage.setItem('cortona-lang', lang); }catch(e){}
+  }
+  document.querySelectorAll('.lang-toggle button').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.dataset.lang); });
+  });
+  var saved;
+  try{ saved = localStorage.getItem('cortona-lang'); }catch(e){}
+  if(saved === 'en'){ setLang('en'); }
+})();
+</script>
 </body>
 </html>
