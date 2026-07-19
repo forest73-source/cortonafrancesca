@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arcani - Francesca Cortona</title>
+    <title>Arcani - Edizione Limitata | Francesca Cortona</title>
     <style>
         :root {
-            --bg-color: #0b0b0b;
-            --text-color: #e5e5e5;
-            --accent-color: #c5a059; /* Tonalità oro artistico */
-            --card-bg: #121212;
-            --border-color: #222222;
+            --bg-color: #0d0d0d;
+            --text-color: #e0e0e0;
+            --accent-color: #c5a059; /* Oro artistico */
+            --card-bg: #161616;
+            --border-color: #262626;
         }
 
         body {
@@ -22,28 +22,30 @@
             padding: 0;
         }
 
-        /* Navigazione / Header */
+        /* Navigazione principale */
         nav {
-            padding: 20px;
+            padding: 25px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             border-bottom: 1px solid var(--border-color);
         }
 
         nav .logo {
-            font-size: 1.2rem;
-            letter-spacing: 2px;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: 300;
+            color: #ffffff;
         }
 
         nav a {
             color: var(--text-color);
             text-decoration: none;
             font-size: 0.9rem;
+            letter-spacing: 1px;
             transition: color 0.3s;
         }
 
@@ -51,18 +53,18 @@
             color: var(--accent-color);
         }
 
-        /* Sezione Principale / Hero */
+        /* Intestazione / Hero */
         .hero {
             text-align: center;
-            padding: 80px 20px 40px 20px;
+            padding: 90px 20px 30px 20px;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            letter-spacing: 6px;
-            margin: 0 0 20px 0;
+            font-size: 3.8rem;
+            letter-spacing: 8px;
+            margin: 0 0 15px 0;
             font-weight: 300;
             color: #ffffff;
         }
@@ -70,20 +72,20 @@
         .hero .tagline {
             font-size: 1.2rem;
             color: #888888;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        /* Sezione della presentazione del Cofanetto */
+        /* Sezione Cofanetto */
         .sezione-cofanetto {
-            padding: 60px 20px;
-            max-width: 1200px;
+            padding: 40px 20px 80px 20px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .intro-cofanetto {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .badge-edizione {
@@ -92,16 +94,16 @@
             color: #000000;
             font-weight: bold;
             text-transform: uppercase;
-            padding: 5px 14px;
+            padding: 6px 16px;
             font-size: 0.75rem;
             letter-spacing: 2px;
             border-radius: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .intro-cofanetto h2 {
-            font-size: 2.2rem;
-            letter-spacing: 3px;
+            font-size: 2.4rem;
+            letter-spacing: 2px;
             margin: 0 0 20px 0;
             color: #ffffff;
             font-weight: 400;
@@ -110,17 +112,17 @@
         .intro-cofanetto p {
             max-width: 750px;
             margin: 0 auto;
-            color: #b0b0b0;
+            color: #b5b5b5;
             font-size: 1.15rem;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
-        /* La Griglia con i 4 Riquadri */
+        /* Griglia a 4 Riquadri */
         .griglia-riquadri {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
 
         .riquadro {
@@ -139,7 +141,7 @@
         .riquadro h3 {
             color: var(--accent-color);
             margin-top: 0;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 12px;
             font-weight: 400;
@@ -154,7 +156,7 @@
         }
 
         .riquadro li {
-            padding: 10px 0;
+            padding: 8px 0;
             font-size: 0.95rem;
             line-height: 1.5;
             color: #cccccc;
@@ -167,131 +169,121 @@
             color: var(--accent-color);
             position: absolute;
             left: 0;
-            top: 9px;
+            top: 7px;
             font-size: 0.75rem;
         }
 
-        /* Pulsante di Azione / CTA */
+        /* Pulsante di acquisto */
         .cta-container {
             text-align: center;
-            margin: 60px 0;
+            margin-top: 60px;
         }
 
-        .btn-azione {
+        .btn-acquisto {
             display: inline-block;
             background-color: transparent;
             color: var(--accent-color);
             border: 1px solid var(--accent-color);
-            padding: 18px 48px;
+            padding: 16px 45px;
             font-size: 1rem;
             font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
             letter-spacing: 2px;
             transition: all 0.3s ease;
-            border-radius: 2px;
         }
 
-        .btn-azione:hover {
+        .btn-acquisto:hover {
             background-color: var(--accent-color);
             color: #000000;
-            box-shadow: 0 0 20px rgba(197, 160, 89, 0.2);
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
             cursor: pointer;
         }
 
-        /* Piè di pagina */
+        /* Footer */
         footer {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
             border-top: 1px solid var(--border-color);
             font-size: 0.85rem;
-            color: #666666;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: #999999;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 15px;
-            transition: color 0.2s;
-        }
-
-        footer a:hover {
-            color: var(--accent-color);
+            color: #555555;
+            margin-top: 60px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigazione Superiore -->
+    <!-- Barra di Navigazione -->
     <nav>
         <div class="logo">Francesca Cortona</div>
-        <a href="index.html">&larr; Home</a>
+        <a href="index.html">&larr; Torna alla Home</a>
     </nav>
 
-    <!-- Contenuto Principale -->
     <main>
+        <!-- Intestazione Principale -->
         <section class="hero">
             <h1>ARCANI</h1>
-            <p class="tagline">Edizione d'Arte in Tiratura Limitata</p>
+            <p class="tagline">Edizione d'Arte</p>
         </section>
 
-        <!-- Sezione Dettagli Cofanetto con i 4 Riquadri -->
+        <!-- Contenuto Centrale del Cofanetto -->
         <section class="sezione-cofanetto">
             <div class="intro-cofanetto">
-                <span class="badge-edizione">Edizione Limitata[cite: 1]</span>
+                <span class="badge-edizione">Edizione Limitata[cite: 2]</span>
                 <h2>Il Cofanetto degli Arcani</h2>
                 <p>
-                    Ogni esemplare è preparato, numerato e firmato personalmente da Francesca Cortona, rendendo ogni cofanetto un'opera unica da collezione[cite: 1]. Un'edizione pensata per accompagnare il tuo corso attraverso i 22[cite: 1].
+                    Ogni esemplare è preparato, numerato e firmato personalmente da Francesca Cortona, rendendo ogni cofanetto un'opera unica da collezione[cite: 2]. Un'edizione pensata per accompagnare il tuo corso attraverso i 22[cite: 2].
                 </p>
             </div>
 
+            <!-- I 4 Riquadri Aggiornati -->
             <div class="griglia-riquadri">
                 <!-- Riquadro 1 -->
                 <div class="riquadro">
-                    <h3>L'Opera Civica</h3>
+                    <h3>Il Mazzo d'Arte</h3>
                     <ul>
-                        <li>Cofanetto da collezione[cite: 1]</li>
-                        <li>Mazzo completo con 22 Arcani illustrati e firmati con la sigla FC[cite: 1]</li>
+                        <li>Cofanetto da collezione[cite: 2]</li>
+                        <li>Mazzo completo con 22 Arcani illustrati e firmati con la sigla FC[cite: 2]</li>
                     </ul>
                 </div>
 
                 <!-- Riquadro 2 -->
                 <div class="riquadro">
-                    <h3>Elementi Narrativi</h3>
+                    <h3>Contenuti Editoriali</h3>
                     <ul>
-                        <li>Volume illustrato ARCANI[cite: 1]</li>
-                        <li>Accesso alle composizioni sonore originali dell'opera[cite: 1]</li>
+                        <li>Volume illustrato ARCANI[cite: 2]</li>
+                        <li>Accesso alle composizioni sonore originali dell'opera[cite: 2]</li>
                     </ul>
                 </div>
 
                 <!-- Riquadro 3 -->
                 <div class="riquadro">
-                    <h3>Certificazioni</h3>
+                    <h3>Autenticità & Stampe</h3>
                     <ul>
-                        <li>Certificato di Autenticità a mano[cite: 1]</li>
-                        <li>Una stampa Fine Art Arcano a scelta, firmata e datata dall'artista[cite: 1]</li>
+                        <li>Certificato di Autenticità a mano[cite: 2]</li>
+                        <li>Una stampa Fine Art dell'Arcano a scelta, firmata e datata dall'artista[cite: 2]</li>
                     </ul>
                 </div>
 
                 <!-- Riquadro 4 -->
                 <div class="riquadro">
-                    <h3>Esclusività</h3>
+                    <h3>Tiratura & Spedizione</h3>
                     <ul>
-                        <li>Solo 33 cofanetti numerati[cite: 1]</li>
-                        <li>Spedizione gratuita[cite: 1]</li>
+                        <li>Solo 33 cofanetti numerati[cite: 2]</li>
+                        <li>Ogni esemplare è preparato, numerato e firmato personalmente da Francesca Cortona[cite: 2]</li>
+                        <li>Spedizione gratuita[cite: 2]</li>
                     </ul>
                 </div>
             </div>
 
+            <!-- Pulsante Call to Action -->
             <div class="cta-container">
-                <a href="#" class="btn-azione">Richiedi un Esemplare</a>
+                <a href="#" class="btn-acquisto">Richiedi il Cofanetto</a>
             </div>
         </section>
     </main>
 
-    <!-- Piè di pagina -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Francesca Cortona. Tutti i diritti riservati.</p>
     </footer>
