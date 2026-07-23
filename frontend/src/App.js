@@ -6,6 +6,8 @@ import Home from "@/pages/Home";
 import Arcani from "@/pages/Arcani";
 import Opere from "@/pages/Opere";
 import OpereSerie from "@/pages/OpereSerie";
+import Mostre from "@/pages/Mostre";
+import SetteChakra from "@/pages/SetteChakra";
 import Contatti from "@/pages/Contatti";
 import "@/App.css";
 
@@ -29,6 +31,8 @@ function App() {
             <Route path="/arcani" element={<Arcani />} />
             <Route path="/opere" element={<Opere />} />
             <Route path="/opere/:slug" element={<OpereSerie />} />
+            <Route path="/mostre" element={<Mostre />} />
+            <Route path="/7-chakra" element={<SetteChakra />} />
             <Route path="/contatti" element={<Contatti />} />
           </Routes>
         </main>

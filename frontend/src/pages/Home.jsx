@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, GraduationCap, Languages, Download } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { SITE } from "@/data/site";
 import content from "@/data/content.json";
+import { formazione, lingue } from "@/data/extra";
 
 const featured = content.arcani.slice(0, 3);
 
@@ -105,11 +105,72 @@ export default function Home() {
                 ha allargato la sua ricerca alla Crypto Arte lanciando la collezione NFT '7CHAKRA CONNECTION' a scopo umanitario.
               </p>
 
-              <a href={SITE.opensea} target="_blank" rel="noopener noreferrer"
-                 data-testid="opensea-link"
+              <Link to="/7-chakra" data-testid="home-chakra-link"
                  className="inline-flex items-center gap-2 mt-8 font-ui text-sm tracking-wide2 uppercase text-gold-bright link-underline">
-                <Sparkles size={15} /> Vedi la Collezione NFT su OpenSea
-              </a>
+                <Sparkles size={15} /> Scopri il progetto 7 Chakra Connection
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* CURRICULUM / FORMAZIONE */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-8" data-testid="cv-section">
+        <Reveal className="text-center mb-14">
+          <span className="font-ui text-[0.72rem] tracking-[0.4em] uppercase text-gold">Il Percorso</span>
+          <h2 className="font-display text-3xl md:text-4xl text-[#f3eee7] mt-4">Curriculum & Formazione</h2>
+        </Reveal>
+
+        <div className="grid lg:grid-cols-12 gap-10">
+          {/* Timeline formazione */}
+          <div className="lg:col-span-8">
+            <Reveal>
+              <div className="flex items-center gap-3 mb-8">
+                <GraduationCap className="text-gold" size={24} />
+                <h3 className="font-display text-xl text-[#f3eee7] tracking-wide2">Studi & Formazione</h3>
+              </div>
+              <div className="relative pl-8 border-l" style={{ borderColor: "var(--line)" }}>
+                {formazione.map((f, i) => (
+                  <div key={i} className="relative pb-8 group" data-testid={`cv-item-${i}`}>
+                    <span className="absolute -left-[38px] top-1.5 w-3 h-3 rounded-full border-2 transition-colors group-hover:bg-[var(--gold)]"
+                          style={{ borderColor: "var(--gold)", background: "var(--bg)" }} />
+                    <span className="font-ui text-[0.68rem] tracking-[0.3em] uppercase text-gold">{f.periodo}</span>
+                    <h4 className="font-display text-lg md:text-xl text-[#f3eee7] mt-1 tracking-wide2">{f.titolo}</h4>
+                    <p className="font-serif-el text-lg text-[#a29b93] mt-0.5">{f.luogo}</p>
+                    {f.nota && <p className="font-ui text-sm text-[#8a837b] mt-0.5 italic">{f.nota}</p>}
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Side: lingue + interessi + download */}
+          <div className="lg:col-span-4">
+            <Reveal delay={0.15}>
+              <div className="p-7 border" style={{ borderColor: "var(--line)", background: "var(--surface)" }}>
+                <div className="flex items-center gap-3 mb-5">
+                  <Languages className="text-gold" size={22} />
+                  <h3 className="font-display text-lg text-[#f3eee7] tracking-wide2">Lingue</h3>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  {lingue.map((l) => (
+                    <li key={l.l} className="flex items-center justify-between border-b pb-2" style={{ borderColor: "rgba(201,162,75,0.1)" }}>
+                      <span className="font-serif-el text-lg text-[#d8d2ca]">{l.l}</span>
+                      <span className="font-ui text-[0.68rem] tracking-[0.2em] uppercase text-gold-bright">{l.v}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h3 className="font-display text-lg text-[#f3eee7] tracking-wide2 mb-3">Interessi</h3>
+                <p className="font-serif-el text-lg text-[#a29b93] leading-relaxed mb-8">
+                  Studio delle pratiche olistiche ed esoteriche, ricerca sulla luce interiore e sull'energia dei colori.
+                </p>
+
+                <a href="/cv-francesca-cortona.pdf" download data-testid="cv-download"
+                   className="btn-gold w-full justify-center">
+                  <Download size={16} /> Scarica il CV
+                </a>
+              </div>
             </Reveal>
           </div>
         </div>

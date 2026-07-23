@@ -48,7 +48,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-9">
+        <div className="hidden md:flex items-center gap-6 lg:gap-7">
           <NavLink to="/" className={linkClass} data-testid="nav-home">Home</NavLink>
           <NavLink to="/arcani" className={linkClass} data-testid="nav-arcani">Arcani</NavLink>
 
@@ -112,6 +112,8 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
+          <NavLink to="/mostre" className={linkClass} data-testid="nav-mostre">Mostre</NavLink>
+          <NavLink to="/7-chakra" className={linkClass} data-testid="nav-chakra">7 Chakra</NavLink>
           <NavLink to="/contatti" className={linkClass} data-testid="nav-contatti">Contatti</NavLink>
         </div>
 
@@ -155,6 +157,12 @@ export default function Navbar() {
                   ))}
                 </div>
               </div>
+              <NavLink to="/mostre" className="font-serif-el text-2xl py-2 text-[#ece7e1]">
+                Mostre &amp; Critica
+              </NavLink>
+              <NavLink to="/7-chakra" className="font-serif-el text-2xl py-2 text-[#ece7e1]">
+                7 Chakra
+              </NavLink>
               <NavLink to="/contatti" className="font-serif-el text-2xl py-2 text-[#ece7e1]">
                 Contatti
               </NavLink>

@@ -21,6 +21,8 @@ export default function Footer() {
             <li><Link to="/" className="link-underline hover:text-gold-bright transition-colors">Home</Link></li>
             <li><Link to="/arcani" className="link-underline hover:text-gold-bright transition-colors">Arcani</Link></li>
             <li><Link to="/opere" className="link-underline hover:text-gold-bright transition-colors">Opere</Link></li>
+            <li><Link to="/mostre" className="link-underline hover:text-gold-bright transition-colors">Mostre &amp; Critica</Link></li>
+            <li><Link to="/7-chakra" className="link-underline hover:text-gold-bright transition-colors">7 Chakra</Link></li>
             <li><Link to="/contatti" className="link-underline hover:text-gold-bright transition-colors">Contatti</Link></li>
           </ul>
         </div>
