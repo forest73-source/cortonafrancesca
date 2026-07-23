@@ -4,61 +4,40 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, GraduationCap, Languages, Download } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import content from "@/data/content.json";
-import { formazione, lingue } from "@/data/extra";
+import { formazione, lingue, pick } from "@/data/extra";
+import { useLang } from "@/i18n/LanguageContext";
 
 const featured = content.arcani.slice(0, 3);
 
 export default function Home() {
+  const { t, lang } = useLang();
   return (
     <div data-testid="home-page">
       {/* HERO */}
       <section className="relative min-h-[100vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/media/arcani/portrait.webp" alt="Cortona Francesca"
-               className="w-full h-full object-cover object-center opacity-40" />
+          <img src="/media/arcani/portrait.webp" alt="Cortona Francesca" className="w-full h-full object-cover object-center opacity-40" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(11,10,15,0.96) 0%, rgba(11,10,15,0.7) 45%, rgba(11,10,15,0.5) 100%)" }} />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, var(--bg) 2%, transparent 40%)" }} />
         </div>
-
         <div className="relative max-w-7xl mx-auto px-6 lg:px-10 w-full pt-24">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.2, 0.7, 0.2, 1] }}
-            className="max-w-2xl"
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.2, 0.7, 0.2, 1] }} className="max-w-2xl">
             <div className="flex items-center gap-3 mb-8">
               <span className="w-14 h-px bg-[var(--gold)]" />
-              <span className="font-ui text-[0.72rem] tracking-[0.4em] uppercase text-gold">
-                Artista · Pittrice · Ricercatrice Spirituale
-              </span>
+              <span className="font-ui text-[0.72rem] tracking-[0.34em] uppercase text-gold">{t.home.role}</span>
             </div>
-
             <h1 className="font-display text-[3.2rem] sm:text-[4.5rem] lg:text-[5.6rem] leading-[0.95] text-[#f3eee7]">
-              CORTONA
-              <span className="block text-gold-bright mt-2 tracking-[0.06em]">FRANCESCA</span>
+              CORTONA<span className="block text-gold-bright mt-2 tracking-[0.06em]">FRANCESCA</span>
             </h1>
-
-            <p className="font-serif-el italic text-2xl md:text-3xl text-[#c7c0b7] mt-8 leading-snug">
-              «Un'Arte che non serve a Guarire non è Arte.»
-            </p>
-
+            <p className="font-serif-el italic text-2xl md:text-3xl text-[#c7c0b7] mt-8 leading-snug">{t.home.quote}</p>
             <div className="flex flex-wrap gap-4 mt-11">
-              <Link to="/arcani" className="btn-gold" data-testid="hero-arcani-btn">
-                Il Cofanetto degli Arcani <ArrowRight size={16} />
-              </Link>
-              <Link to="/opere" className="btn-gold" data-testid="hero-opere-btn"
-                    style={{ borderColor: "rgba(236,231,225,0.3)", color: "#ece7e1" }}>
-                Scopri le Opere
-              </Link>
+              <Link to="/arcani" className="btn-gold" data-testid="hero-arcani-btn">{t.home.ctaCofanetto} <ArrowRight size={16} /></Link>
+              <Link to="/opere" className="btn-gold" data-testid="hero-opere-btn" style={{ borderColor: "rgba(236,231,225,0.3)", color: "#ece7e1" }}>{t.home.ctaOpere}</Link>
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="font-ui text-[0.6rem] tracking-[0.3em] text-[#8a837b] uppercase">Scorri</span>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <span className="font-ui text-[0.6rem] tracking-[0.3em] text-[#8a837b] uppercase">{t.home.scroll}</span>
           <span className="w-px h-10 bg-gradient-to-b from-[var(--gold)] to-transparent" />
         </motion.div>
       </section>
@@ -68,46 +47,23 @@ export default function Home() {
         <div className="grid lg:grid-cols-12 gap-14 items-start">
           <div className="lg:col-span-5">
             <Reveal>
-              <span className="font-ui text-[0.72rem] tracking-[0.4em] uppercase text-gold">La Biografia</span>
-              <h2 className="font-display text-4xl md:text-5xl text-[#f3eee7] mt-5 leading-tight">
-                L'Arte e la<br />sua Essenza
-              </h2>
+              <span className="font-ui text-[0.72rem] tracking-[0.4em] uppercase text-gold">{t.home.bioEyebrow}</span>
+              <h2 className="font-display text-4xl md:text-5xl text-[#f3eee7] mt-5 leading-tight">{t.home.bioTitle}</h2>
               <div className="mt-8 relative overflow-hidden border" style={{ borderColor: "var(--line)" }}>
-                <img src="/media/arcani/portrait.webp" alt="Cortona Francesca ritratto"
-                     className="w-full object-cover animate-float" style={{ maxHeight: 520 }} />
+                <img src="/media/arcani/portrait.webp" alt="Cortona Francesca ritratto" className="w-full object-cover animate-float" style={{ maxHeight: 520 }} />
               </div>
             </Reveal>
           </div>
-
           <div className="lg:col-span-7 lg:pt-10">
             <Reveal delay={0.15}>
-              <p className="font-serif-el text-xl md:text-[1.45rem] leading-relaxed text-[#d8d2ca]">
-                L'espressione artistica di Cortona è intrinsecamente di natura <span className="text-gold-bright">Spirituale</span>.
-                Attraverso una comunicazione olistica ed esoterica, si impegna a trasmettere con la pittura un
-                messaggio più profondo, spingendo chi osserva a rivolgere lo sguardo verso il proprio IO interiore.
-                La sua ricerca si concentra sulla Conoscenza e la Consapevolezza del Sé e dei Sensi, per riconnettere
-                alla propria Luce interiore: per Cortona l'arte è <span className="text-gold-bright">Guarigione</span>.
-              </p>
-
+              <p className="font-serif-el text-xl md:text-[1.45rem] leading-relaxed text-[#d8d2ca]">{t.home.bioP1}</p>
               <div className="my-10 pl-6 border-l-2" style={{ borderColor: "var(--gold)" }}>
-                <p className="font-serif-el italic text-2xl text-[#c7c0b7] leading-snug">
-                  "Un'Arte che non serve a Guarire non è Arte"
-                </p>
-                <p className="font-ui text-sm text-[#8a837b] mt-3 tracking-wide2">— Alejandro Jodorowsky</p>
+                <p className="font-serif-el italic text-2xl text-[#c7c0b7] leading-snug">{t.home.bioQuote}</p>
+                <p className="font-ui text-sm text-[#8a837b] mt-3 tracking-wide2">{t.home.bioQuoteAuthor}</p>
               </div>
-
-              <p className="font-serif-el text-xl md:text-[1.35rem] leading-relaxed text-[#d8d2ca]">
-                Nata a <span className="text-[#ece7e1]">Roma nel 1984</span> e specializzatasi alla
-                <span className="text-[#ece7e1]"> Central Saint Martins di Londra nel 2008</span>, Francesca si distingue
-                nel panorama contemporaneo per l'utilizzo innovativo di pigmenti fotoluminescenti combinati con la
-                pittura a olio classica. Questi materiali generano luce nel buio, diventando metafora della bellezza
-                interiore che si espande. Premiata nel <span className="text-[#ece7e1]">2021 da Vittorio Sgarbi</span>,
-                ha allargato la sua ricerca alla Crypto Arte lanciando la collezione NFT '7CHAKRA CONNECTION' a scopo umanitario.
-              </p>
-
-              <Link to="/7-chakra" data-testid="home-chakra-link"
-                 className="inline-flex items-center gap-2 mt-8 font-ui text-sm tracking-wide2 uppercase text-gold-bright link-underline">
-                <Sparkles size={15} /> Scopri il progetto 7 Chakra Connection
+              <p className="font-serif-el text-xl md:text-[1.35rem] leading-relaxed text-[#d8d2ca]">{t.home.bioP2}</p>
+              <Link to="/7-chakra" data-testid="home-chakra-link" className="inline-flex items-center gap-2 mt-8 font-ui text-sm tracking-wide2 uppercase text-gold-bright link-underline">
+                <Sparkles size={15} /> {t.home.chakraLink}
               </Link>
             </Reveal>
           </div>
@@ -117,58 +73,48 @@ export default function Home() {
       {/* CURRICULUM / FORMAZIONE */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-8" data-testid="cv-section">
         <Reveal className="text-center mb-14">
-          <span className="font-ui text-[0.72rem] tracking-[0.4em] uppercase text-gold">Il Percorso</span>
-          <h2 className="font-display text-3xl md:text-4xl text-[#f3eee7] mt-4">Curriculum & Formazione</h2>
+          <span className="font-ui text-[0.72rem] tracking-[0.4em] uppercase text-gold">{t.home.cvEyebrow}</span>
+          <h2 className="font-display text-3xl md:text-4xl text-[#f3eee7] mt-4">{t.home.cvTitle}</h2>
         </Reveal>
-
         <div className="grid lg:grid-cols-12 gap-10">
-          {/* Timeline formazione */}
           <div className="lg:col-span-8">
             <Reveal>
               <div className="flex items-center gap-3 mb-8">
                 <GraduationCap className="text-gold" size={24} />
-                <h3 className="font-display text-xl text-[#f3eee7] tracking-wide2">Studi & Formazione</h3>
+                <h3 className="font-display text-xl text-[#f3eee7] tracking-wide2">{t.home.cvStudi}</h3>
               </div>
               <div className="relative pl-8 border-l" style={{ borderColor: "var(--line)" }}>
                 {formazione.map((f, i) => (
                   <div key={i} className="relative pb-8 group" data-testid={`cv-item-${i}`}>
-                    <span className="absolute -left-[38px] top-1.5 w-3 h-3 rounded-full border-2 transition-colors group-hover:bg-[var(--gold)]"
-                          style={{ borderColor: "var(--gold)", background: "var(--bg)" }} />
+                    <span className="absolute -left-[38px] top-1.5 w-3 h-3 rounded-full border-2 transition-colors group-hover:bg-[var(--gold)]" style={{ borderColor: "var(--gold)", background: "var(--bg)" }} />
                     <span className="font-ui text-[0.68rem] tracking-[0.3em] uppercase text-gold">{f.periodo}</span>
-                    <h4 className="font-display text-lg md:text-xl text-[#f3eee7] mt-1 tracking-wide2">{f.titolo}</h4>
+                    <h4 className="font-display text-lg md:text-xl text-[#f3eee7] mt-1 tracking-wide2">{pick(f.titolo, lang)}</h4>
                     <p className="font-serif-el text-lg text-[#a29b93] mt-0.5">{f.luogo}</p>
-                    {f.nota && <p className="font-ui text-sm text-[#8a837b] mt-0.5 italic">{f.nota}</p>}
+                    {f.nota && <p className="font-ui text-sm text-[#8a837b] mt-0.5 italic">{pick(f.nota, lang)}</p>}
                   </div>
                 ))}
               </div>
             </Reveal>
           </div>
-
-          {/* Side: lingue + interessi + download */}
           <div className="lg:col-span-4">
             <Reveal delay={0.15}>
               <div className="p-7 border" style={{ borderColor: "var(--line)", background: "var(--surface)" }}>
                 <div className="flex items-center gap-3 mb-5">
                   <Languages className="text-gold" size={22} />
-                  <h3 className="font-display text-lg text-[#f3eee7] tracking-wide2">Lingue</h3>
+                  <h3 className="font-display text-lg text-[#f3eee7] tracking-wide2">{t.home.cvLingue}</h3>
                 </div>
                 <ul className="space-y-3 mb-8">
-                  {lingue.map((l) => (
-                    <li key={l.l} className="flex items-center justify-between border-b pb-2" style={{ borderColor: "rgba(201,162,75,0.1)" }}>
-                      <span className="font-serif-el text-lg text-[#d8d2ca]">{l.l}</span>
-                      <span className="font-ui text-[0.68rem] tracking-[0.2em] uppercase text-gold-bright">{l.v}</span>
+                  {lingue.map((l, i) => (
+                    <li key={i} className="flex items-center justify-between border-b pb-2" style={{ borderColor: "rgba(201,162,75,0.1)" }}>
+                      <span className="font-serif-el text-lg text-[#d8d2ca]">{pick(l.l, lang)}</span>
+                      <span className="font-ui text-[0.68rem] tracking-[0.2em] uppercase text-gold-bright">{pick(l.v, lang)}</span>
                     </li>
                   ))}
                 </ul>
-
-                <h3 className="font-display text-lg text-[#f3eee7] tracking-wide2 mb-3">Interessi</h3>
-                <p className="font-serif-el text-lg text-[#a29b93] leading-relaxed mb-8">
-                  Studio delle pratiche olistiche ed esoteriche, ricerca sulla luce interiore e sull'energia dei colori.
-                </p>
-
-                <a href="/cv-francesca-cortona.pdf" download data-testid="cv-download"
-                   className="btn-gold w-full justify-center">
-                  <Download size={16} /> Scarica il CV
+                <h3 className="font-display text-lg text-[#f3eee7] tracking-wide2 mb-3">{t.home.cvInteressi}</h3>
+                <p className="font-serif-el text-lg text-[#a29b93] leading-relaxed mb-8">{t.home.cvInteressiText}</p>
+                <a href="/cv-francesca-cortona.pdf" download data-testid="cv-download" className="btn-gold w-full justify-center">
+                  <Download size={16} /> {t.home.cvDownload}
                 </a>
               </div>
             </Reveal>
@@ -180,28 +126,24 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-24" data-testid="home-featured">
         <Reveal className="text-center mb-14">
           <div className="divider-ornament mb-6"><Sparkles size={16} className="text-gold" /></div>
-          <h2 className="font-display text-3xl md:text-4xl text-[#f3eee7]">Dagli Arcani Maggiori</h2>
-          <p className="font-serif-el text-lg text-[#a29b93] mt-3">22 archetipi dell'anima, dipinti a mano</p>
+          <h2 className="font-display text-3xl md:text-4xl text-[#f3eee7]">{t.home.featTitle}</h2>
+          <p className="font-serif-el text-lg text-[#a29b93] mt-3">{t.home.featSub}</p>
         </Reveal>
-
         <div className="grid sm:grid-cols-3 gap-6">
           {featured.map((a, i) => (
             <Reveal key={a.n} delay={i * 0.1}>
               <Link to="/arcani" className="card-hover group relative block overflow-hidden border vignette" style={{ borderColor: "var(--line)" }}>
                 <img src={a.src} alt={a.name} className="w-full h-[420px] object-cover" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
-                  <span className="font-display text-gold text-xs tracking-[0.3em]">{String(a.n).padStart(2,"0")}</span>
+                  <span className="font-display text-gold text-xs tracking-[0.3em]">{String(a.n).padStart(2, "0")}</span>
                   <h3 className="font-display text-2xl text-[#f3eee7] mt-1 tracking-wide2">{a.name}</h3>
                 </div>
               </Link>
             </Reveal>
           ))}
         </div>
-
         <Reveal className="text-center mt-12">
-          <Link to="/arcani" className="btn-gold" data-testid="featured-arcani-btn">
-            Esplora tutti i 22 Arcani <ArrowRight size={16} />
-          </Link>
+          <Link to="/arcani" className="btn-gold" data-testid="featured-arcani-btn">{t.home.featCta} <ArrowRight size={16} /></Link>
         </Reveal>
       </section>
     </div>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Home from "@/pages/Home";
@@ -22,22 +23,24 @@ function ScrollToTop() {
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <div className="relative" style={{ zIndex: 2 }}>
-        <Navbar />
-        <main data-testid="app-main">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/arcani" element={<Arcani />} />
-            <Route path="/opere" element={<Opere />} />
-            <Route path="/opere/:slug" element={<OpereSerie />} />
-            <Route path="/mostre" element={<Mostre />} />
-            <Route path="/7-chakra" element={<SetteChakra />} />
-            <Route path="/contatti" element={<Contatti />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <LanguageProvider>
+        <ScrollToTop />
+        <div className="relative" style={{ zIndex: 2 }}>
+          <Navbar />
+          <main data-testid="app-main">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/arcani" element={<Arcani />} />
+              <Route path="/opere" element={<Opere />} />
+              <Route path="/opere/:slug" element={<OpereSerie />} />
+              <Route path="/mostre" element={<Mostre />} />
+              <Route path="/7-chakra" element={<SetteChakra />} />
+              <Route path="/contatti" element={<Contatti />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </LanguageProvider>
     </BrowserRouter>
   );
 }
