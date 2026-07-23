@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback } from "react";
+import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
 import { T, LANGS } from "@/i18n/t";
 
 const LanguageContext = createContext(null);
@@ -7,10 +7,10 @@ export function LanguageProvider({ children }) {
   const [lang, setLangState] = useState(() => {
     try { return localStorage.getItem("lang") || "it"; } catch { return "it"; }
   });
+  useEffect(() => { document.documentElement.lang = lang; }, [lang]);
   const setLang = useCallback((l) => {
     setLangState(l);
     try { localStorage.setItem("lang", l); } catch {}
-    document.documentElement.lang = l;
   }, []);
   const t = T[lang] || T.it;
   return (
